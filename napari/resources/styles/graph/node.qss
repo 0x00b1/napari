@@ -1,0 +1,11 @@
+ContentWidget {
+    background: transparent;
+}
+
+ContentWidget QLabel {
+    color: #e0e0e0;
+}
+
+View {
+    selection-background-color: rgb(255, 255, 255);
+}

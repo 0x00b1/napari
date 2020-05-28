@@ -2,6 +2,8 @@ from qtpy.QtWidgets import QHBoxLayout, QPushButton, QFrame, QCheckBox
 from qtpy.QtCore import Qt
 import numpy as np
 
+from napari._qt.graph.qt_editor_window import QtEditorWindow
+
 
 class QtLayerButtons(QFrame):
     """Button controls for napari layers.
@@ -81,6 +83,8 @@ class QtViewerButtons(QFrame):
         Button to toggle grid view mode of layers on and off.
     ndisplayButton : QtNDisplayButton
         Button to toggle number of displayed dimensions.
+    graphButton : QtViewerPushButton
+        Button to open graph editor
     viewer : napari.components.ViewerModel
         Napari viewer containing the rendered scene, layers, and controls.
     """
@@ -111,6 +115,13 @@ class QtViewerButtons(QFrame):
         self.gridViewButton = QtGridViewButton(self.viewer)
         self.ndisplayButton = QtNDisplayButton(self.viewer)
 
+        self.graphButton = QtViewerPushButton(
+            self.viewer,
+            'editor',
+            'Open editor',
+            self.open_editor
+        )
+
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self.consoleButton)
@@ -118,9 +129,17 @@ class QtViewerButtons(QFrame):
         layout.addWidget(self.rollDimsButton)
         layout.addWidget(self.transposeDimsButton)
         layout.addWidget(self.gridViewButton)
+        layout.addWidget(self.graphButton)
         layout.addWidget(self.resetViewButton)
         layout.addStretch(0)
         self.setLayout(layout)
+
+    def open_editor(self):
+        editor = QtEditorWindow(self.viewer)
+
+        editor.editor_widget.addNodes()
+
+        editor.show()
 
 
 class QtDeleteButton(QPushButton):

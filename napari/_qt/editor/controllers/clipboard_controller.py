@@ -1,0 +1,2 @@
+class ClipboardController:
+    pass

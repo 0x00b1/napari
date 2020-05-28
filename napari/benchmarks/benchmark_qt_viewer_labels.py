@@ -54,7 +54,7 @@ class QtViewerSingleLabelsSuite:
 
     def time_paint(self):
         """Time to paint."""
-        self.layer.paint(self.layer.coordinates, self.layer.selected_label)
+        self.layer.paint(self.layer.coordinates, )
 
     def time_fill(self):
         """Time to fill."""

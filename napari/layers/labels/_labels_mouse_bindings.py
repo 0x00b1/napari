@@ -30,7 +30,7 @@ def draw(layer, event):
         new_label = layer.selected_label
 
     if layer._mode in [Mode.PAINT, Mode.ERASE]:
-        layer.paint(layer.coordinates, new_label)
+        layer.paint(layer.coordinates, )
     elif layer._mode == Mode.FILL:
         layer.fill(layer.coordinates, new_label)
 
@@ -44,7 +44,7 @@ def draw(layer, event):
         )
         for c in interp_coord:
             if layer._mode in [Mode.PAINT, Mode.ERASE]:
-                layer.paint(c, new_label, refresh=False)
+                layer.paint(c, )
             elif layer._mode == Mode.FILL:
                 layer.fill(c, new_label, refresh=False)
         layer.refresh()

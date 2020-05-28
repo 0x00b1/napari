@@ -86,6 +86,7 @@ class QtViewer(QSplitter):
         self.viewer = viewer
         self.dims = QtDims(self.viewer.dims)
         self.controls = QtControls(self.viewer)
+
         self.layers = QtLayerList(self.viewer.layers)
         self.layerButtons = QtLayerButtons(self.viewer)
         self.viewerButtons = QtViewerButtons(self.viewer)
