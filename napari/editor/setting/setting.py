@@ -1,8 +1,8 @@
 from napari.editor.serializable import Serializable
 
 
-class Option(Serializable):
-    data: any
+class Setting(Serializable):
+    value: any
 
     def deserialize(
         self,

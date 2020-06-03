@@ -2,8 +2,6 @@ from qtpy.QtWidgets import QHBoxLayout, QPushButton, QFrame, QCheckBox
 from qtpy.QtCore import Qt
 import numpy as np
 
-from napari._qt.graph.qt_editor_window import QtEditorWindow
-
 
 class QtLayerButtons(QFrame):
     """Button controls for napari layers.
@@ -135,11 +133,7 @@ class QtViewerButtons(QFrame):
         self.setLayout(layout)
 
     def open_editor(self):
-        editor = QtEditorWindow(self.viewer)
-
-        editor.editor_widget.addNodes()
-
-        editor.show()
+        pass
 
 
 class QtDeleteButton(QPushButton):
