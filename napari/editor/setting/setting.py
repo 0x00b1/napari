@@ -2,7 +2,7 @@ from napari.editor.serializable import Serializable
 
 
 class Setting(Serializable):
-    value: any
+    data: any
 
     def deserialize(
         self,
@@ -14,4 +14,7 @@ class Setting(Serializable):
         pass
 
     def serialize(self) -> dict:
-        pass
+        return {
+            "data": self.data,
+            "kind": self.__class__.__name__
+        }
