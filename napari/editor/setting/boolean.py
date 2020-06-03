@@ -2,7 +2,7 @@ from .setting import Setting
 
 
 class Boolean(Setting):
-    def __init__(self, value: bool):
+    def __init__(self, data: bool):
         super().__init__()
 
-        self.value: bool = value
+        self.data: bool = data
