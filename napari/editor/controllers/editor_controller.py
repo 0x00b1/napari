@@ -4,9 +4,14 @@ from ..graph import Graph
 
 
 class EditorController:
+    editor_window: 'EditorWindow'
+
     def __init__(self):
         self.graph = Graph()
 
         self.graph_controller = GraphController()
 
-        self.editor_window = EditorWindow()
+    def open(self, parent):
+        self.editor_window = EditorWindow(parent)
+
+        self.editor_window.show()

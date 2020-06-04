@@ -117,7 +117,7 @@ class QtViewer(QSplitter):
         self.dockConsole = QtViewerDockWidget(
             self,
             QWidget(),
-            name='console',
+            name='  console',
             area='bottom',
             allowed_areas=['top', 'bottom'],
             shortcut='Ctrl+Shift+C',

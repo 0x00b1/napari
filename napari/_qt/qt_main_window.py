@@ -7,13 +7,14 @@ import time
 # set vispy to use same backend as qtpy
 from ..utils.io import imsave
 
-from .qt_viewer import QtViewer
+from ..editor.controllers.editor_controller import EditorController
+from ..resources import get_stylesheet
 from .qt_about import QtAbout
+from .qt_dict_table import QtDictTable
 from .qt_plugin_report import QtPluginErrReporter
 from .qt_plugin_sorter import QtPluginSorter
-from .qt_dict_table import QtDictTable
+from .qt_viewer import QtViewer
 from .qt_viewer_dock_widget import QtViewerDockWidget
-from ..resources import get_stylesheet
 
 # these "# noqa" comments are here to skip flake8 linting (E402),
 # these module-level imports have to come after `app.use_app(API)`
@@ -105,6 +106,8 @@ class Window:
         self.qt_viewer.viewer.events.help.connect(self._help_changed)
         self.qt_viewer.viewer.events.title.connect(self._title_changed)
         self.qt_viewer.viewer.events.palette.connect(self._update_palette)
+
+        self._editor_controller = EditorController()
 
         if show:
             self.show()
@@ -245,8 +248,18 @@ class Window:
         exit_action.setShortcut("Ctrl+W")
         exit_action.setStatusTip('Close napari window')
         exit_action.triggered.connect(self._qt_window.close)
+
+        editor_action = QAction('Editor', self._qt_window)
+        editor_action.setShortcut('Ctrl+E')
+        editor_action.setStatusTip('Open editor window')
+        editor_action.triggered.connect(
+            lambda: self._editor_controller.open(self._qt_window)
+        )
+
         self.window_menu = self.main_menu.addMenu('&Window')
+
         self.window_menu.addAction(exit_action)
+        self.window_menu.addAction(editor_action)
 
     def _add_plugins_menu(self):
         """Add 'Plugins' menu to app menubar."""
