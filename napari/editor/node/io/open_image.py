@@ -1,7 +1,7 @@
 from imageio import imread
 
 from napari.editor.node.node import Node
-from napari.editor.setting.path import Path
+from napari.editor.setting.path_setting import PathSetting
 from napari.editor.socket.layer.image_socket import ImageSocket
 from napari.layers import Image
 
@@ -12,7 +12,7 @@ class OpenImage(Node):
 
         self.socket: 'Socket' = ImageSocket(self.id)
 
-        self.path: 'Path' = Path()
+        self.path: 'PathSetting' = PathSetting()
 
     @property
     def options(self) -> ['Option']:

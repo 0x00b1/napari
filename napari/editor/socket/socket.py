@@ -6,8 +6,10 @@ from napari.editor.serializable import Serializable
 class Socket(Serializable):
     connections: ['Connection'] = []
 
-    def __init__(self, node_id: int):
+    def __init__(self, name: str, node_id: int):
         super().__init__()
+
+        self.name = name
 
         self.node_id = node_id
 
@@ -46,5 +48,6 @@ class Socket(Serializable):
         return {
             'id': self.id,
             'kind': self.__class__.__name__,
+            'name': self.name,
             'node_id': self.node_id,
         }
