@@ -1,0 +1,2 @@
+class SocketController:
+    pass
