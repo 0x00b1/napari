@@ -1,4 +1,4 @@
-from ..socket import Socket
+from napari.editor.socket import Socket
 
 
 class ImageSocket(Socket):

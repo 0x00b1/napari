@@ -1,6 +1,6 @@
 from skimage.morphology import erosion
 
-from ..node import Node
+from napari.editor.node import Node
 from ...setting.integer_setting import IntegerSetting
 from ...socket.layer.image_socket import ImageSocket
 from ....layers import Image

@@ -1,4 +1,4 @@
-from .setting import Setting
+from napari.editor.setting import Setting
 
 
 class IntegerSetting(Setting):

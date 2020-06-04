@@ -1,6 +1,6 @@
 from imageio import imread
 
-from ..node import Node
+from napari.editor.node import Node
 from ...setting.path_setting import PathSetting
 from ...socket.layer.image_socket import ImageSocket
 from ....layers import Image
