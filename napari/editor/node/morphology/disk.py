@@ -8,7 +8,7 @@ from ....layers import Image
 
 class Disk(Node):
     def __init__(self):
-        super().__init__("Disk")
+        super().__init__("Disk", "1.0.0")
 
         self.radius = IntegerSetting("Radius", required=True)
 

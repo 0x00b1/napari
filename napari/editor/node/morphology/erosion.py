@@ -8,7 +8,7 @@ from ....layers import Image
 
 class Erosion(Node):
     def __init__(self):
-        super().__init__("Erosion")
+        super().__init__("Erosion", "1.0.0")
 
         self.radius = IntegerSetting("Radius", required=True)
 

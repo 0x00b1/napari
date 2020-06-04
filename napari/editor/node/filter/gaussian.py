@@ -8,7 +8,7 @@ from ....layers import Image
 
 class Gaussian(Node):
     def __init__(self):
-        super().__init__("Gaussian")
+        super().__init__("Gaussian", "1.0.0")
 
         self.sigma = IntegerSetting("Radius", default=1)
 

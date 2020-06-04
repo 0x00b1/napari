@@ -8,7 +8,7 @@ from ....layers import Image
 
 class OpenImage(Node):
     def __init__(self):
-        super().__init__('Open image')
+        super().__init__('Open image', "1.0.0")
 
         self.path = PathSetting("Path", required=True)
 

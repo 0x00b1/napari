@@ -12,6 +12,7 @@ class Node(Serializable):
     def __init__(
         self,
         name: str,
+        version: str,
         x: ['Socket'] = [],
         y: ['Socket'] = [],
         options: ['Option'] = [],
@@ -189,6 +190,7 @@ class Node(Serializable):
             "id": self.id,
             "kind": self.kind,
             "name": self.name,
+            "version": self.version,
             "x": [socket.serialize() for socket in self.x],
             "y": [socket.serialize() for socket in self.y],
         }
