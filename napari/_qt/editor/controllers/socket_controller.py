@@ -1,4 +1,4 @@
-from napari._qt.editor.widgets._socket_graphics_item import SocketGraphicsItem
+from napari.editor.widgets import SocketGraphicsItem
 from napari.editor.socket.socket import Socket
 
 

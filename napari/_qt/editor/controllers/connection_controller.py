@@ -1,4 +1,4 @@
-from napari._qt.editor.widgets.connection._connection_graphics_path_item import (
+from napari.editor.widgets import (
     ConnectionGraphicsPathItem,
 )
 from ....editor.connection import Connection
