@@ -46,11 +46,11 @@ class Graph(MutableMapping, Serializable):
         self.connections += [connection]
 
     def deserialize(
-            self,
-            serialized: dict,
-            callbacks: dict = {},
-            deserialized: dict = {},
-            restore_id: bool = True,
+        self,
+        serialized: dict,
+        callbacks: dict = {},
+        deserialized: dict = {},
+        restore_id: bool = True,
     ):
         if restore_id:
             self.id = serialized['id']
@@ -71,7 +71,7 @@ class Graph(MutableMapping, Serializable):
                     callbacks=callbacks,
                     deserialized=deserialized,
                     restore_id=restore_id,
-                    serialized=serialized_node
+                    serialized=serialized_node,
                 )
 
                 nodes.remove(existing)
@@ -82,7 +82,7 @@ class Graph(MutableMapping, Serializable):
                     callbacks=callbacks,
                     deserialized=deserialized,
                     restore_id=restore_id,
-                    serialized=serialized_node
+                    serialized=serialized_node,
                 )
 
             node_callback = callbacks["on_deserialized_node"]
@@ -111,7 +111,7 @@ class Graph(MutableMapping, Serializable):
                     callbacks=callbacks,
                     deserialized=deserialized,
                     restore_id=restore_id,
-                    serialized=serialized_connection
+                    serialized=serialized_connection,
                 )
 
                 connections.remove(existing_connection)

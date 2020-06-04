@@ -20,27 +20,17 @@ class Erosion(Node):
 
     @property
     def options(self) -> ['Setting']:
-        return [
-            self.radius
-        ]
+        return [self.radius]
 
     @property
     def x(self) -> ['Socket']:
-        return [
-            self.image,
-            self.structure
-        ]
+        return [self.image, self.structure]
 
     @property
     def y(self) -> ['Socket']:
-        return [
-            self.eroded
-        ]
+        return [self.eroded]
 
     def evaluate(self):
-        data = erosion(
-            self.image.data,
-            self.structure.data
-        )
+        data = erosion(self.image.data, self.structure.data)
 
         self.eroded.data = Image(data)

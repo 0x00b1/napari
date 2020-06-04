@@ -107,7 +107,7 @@ class Node(Serializable):
                 callbacks=callbacks,
                 deserialized=deserialized,
                 restore_id=restore_id,
-                serialized=serialized_x_socket
+                serialized=serialized_x_socket,
             )
 
         for serialized_y_socket in serialized['y']:
@@ -128,7 +128,7 @@ class Node(Serializable):
                 callbacks=callbacks,
                 deserialized=deserialized,
                 restore_id=restore_id,
-                serialized=serialized_y_socket
+                serialized=serialized_y_socket,
             )
 
     def modify(self, modified: bool = True):

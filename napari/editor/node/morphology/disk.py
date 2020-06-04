@@ -16,9 +16,7 @@ class Disk(Node):
 
     @property
     def options(self) -> ['Setting']:
-        return [
-            self.radius
-        ]
+        return [self.radius]
 
     @property
     def x(self) -> ['Socket']:
@@ -26,13 +24,9 @@ class Disk(Node):
 
     @property
     def y(self) -> ['Socket']:
-        return [
-            self.socket
-        ]
+        return [self.socket]
 
     def evaluate(self):
-        data = disk(
-            radius=self.radius.data
-        )
+        data = disk(radius=self.radius.data)
 
         self.socket.data = Image(data)
