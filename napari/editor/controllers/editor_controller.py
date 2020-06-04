@@ -1,10 +1,16 @@
-from .graph_controller import GraphController
-from napari.editor.widgets.editor_window import EditorWindow
 from ..graph import Graph
+from ..widgets.editor_window import EditorWindow
+from ..widgets.scene import Scene
+from ..widgets.view import View
+from ..widgets.widget import Widget
+from .graph_controller import GraphController
 
 
 class EditorController:
-    editor_window: 'EditorWindow'
+    scene: 'Scene'
+    view: 'View'
+    widget: 'Widget'
+    window: 'EditorWindow'
 
     def __init__(self):
         self.graph = Graph()
@@ -12,6 +18,16 @@ class EditorController:
         self.graph_controller = GraphController()
 
     def open(self, parent):
-        self.editor_window = EditorWindow(parent)
+        self.window = EditorWindow(parent)
 
-        self.editor_window.show()
+        self.scene = Scene()
+
+        self.view = View(self.scene)
+        self.view.scene = self.scene
+        self.view.setScene(self.scene)
+
+        self.widget = Widget()
+
+        self.widget.layout.addWidget(self.view)
+
+        self.window.show()
