@@ -2,7 +2,7 @@ from .setting import Setting
 
 
 class Text(Setting):
-    def __init__(self, data: str):
-        super().__init__()
+    def __init__(self, name: str, default: str = None, required: bool = False):
+        super().__init__(name, required)
 
-        self.data: str = data
+        self.data: str = default

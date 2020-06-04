@@ -1,19 +1,24 @@
 from imageio import imread
 
-from .node import Node
-from ..socket.layer.image_socket import ImageSocket
-from ...layers import Image
+from napari.editor.node.node import Node
+from napari.editor.setting.path import Path
+from napari.editor.socket.layer.image_socket import ImageSocket
+from napari.layers import Image
 
 
-class OpenImageNode(Node):
+class OpenImage(Node):
     def __init__(self):
         super().__init__('Open image')
 
-        self.socket = ImageSocket(self.id)
+        self.socket: 'Socket' = ImageSocket(self.id)
+
+        self.path: 'Path' = Path()
 
     @property
     def options(self) -> ['Option']:
-        return []
+        return [
+            self.path
+        ]
 
     @property
     def x(self) -> ['Socket']:
