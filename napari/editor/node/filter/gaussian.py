@@ -17,7 +17,7 @@ class Gaussian(Node):
         self.response = ImageSocket("Response", self.id)
 
     @property
-    def options(self) -> ['Setting']:
+    def settings(self) -> ['Setting']:
         return [self.sigma]
 
     @property

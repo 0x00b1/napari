@@ -15,7 +15,7 @@ class OpenImage(Node):
         self.image = ImageSocket("Image", self.id)
 
     @property
-    def options(self) -> ['Option']:
+    def settings(self) -> ['Option']:
         return [self.path]
 
     @property

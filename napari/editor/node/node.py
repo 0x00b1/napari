@@ -13,30 +13,41 @@ class Node(Serializable):
         self,
         name: str,
         version: str,
-        x: ['Socket'] = [],
-        y: ['Socket'] = [],
-        options: ['Option'] = [],
+        settings: Optional['Setting'] = None,
+        x: Optional['Socket'] = None,
+        y: Optional['Socket'] = None,
     ):
         super().__init__()
+
+        if not x:
+            x = []
+
+        if not y:
+            y = []
+
+        if not settings:
+            settings = []
 
         self.kind = self.__class__.__name__
 
         self.name = name
 
-        self._options = options
+        self.version = version
+
+        self._settings = settings
 
         self._x = x
         self._y = y
 
     @property
     @abstractmethod
-    def options(self) -> ['Option']:
-        return self._options
+    def settings(self) -> ['Setting']:
+        return self._settings
 
-    @options.setter
+    @settings.setter
     @abstractmethod
-    def options(self, value: ['Option']) -> None:
-        self._x = value
+    def settings(self, value: ['Setting']):
+        self._settings = value
 
     @property
     @abstractmethod

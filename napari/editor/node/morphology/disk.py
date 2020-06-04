@@ -15,7 +15,7 @@ class Disk(Node):
         self.socket = ImageSocket("Disk", self.id)
 
     @property
-    def options(self) -> ['Setting']:
+    def settings(self) -> ['Setting']:
         return [self.radius]
 
     @property

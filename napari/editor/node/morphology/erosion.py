@@ -19,7 +19,7 @@ class Erosion(Node):
         self.eroded = ImageSocket("Eroded", self.id)
 
     @property
-    def options(self) -> ['Setting']:
+    def settings(self) -> ['Setting']:
         return [self.radius]
 
     @property
